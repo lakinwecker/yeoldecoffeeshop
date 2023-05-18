@@ -1,24 +1,30 @@
-//-----------------------------------------------------------------------------------
+
+type UserProfile = {
+  username: string;
+  //first_name: string;
+  //last_name: string;
+  // password: string;
+  //email: string;
+};
+
+
 // NOTE: This token is private never export it.
+// Type Level Proof
 //-----------------------------------------------------------------------------------
 const authenticationProofToken: unique symbol = Symbol('User is Authenticated');
 type AuthenticatedProofTokenType = typeof authenticationProofToken;
 
-export type UserProfile = {
-  readonly username: string;
-};
-
 export const UserStatuses = ['Authenticated', 'Unauthenticated'] as const;
-export type UserStatus = (typeof UserStatuses)[number];
+export type UserStatus = typeof UserStatuses[number];
 
 export type AuthenticatedUser = {
   readonly status: 'Authenticated';
   readonly profile: UserProfile;
-  readonly authenticationProofToken: AuthenticatedProofTokenType;
+  authenticationProofToken: AuthenticatedProofTokenType;
 };
 export type UnauthenticatedUser = {
   readonly status: 'Unauthenticated';
-  readonly authenticationProofToken: AuthenticatedProofTokenType;
+  authenticationProofToken: AuthenticatedProofTokenType;
 };
 export type User = AuthenticatedUser | UnauthenticatedUser;
 

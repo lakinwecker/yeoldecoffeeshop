@@ -3,7 +3,7 @@ import test from 'ava';
 import { isAuthenticated, isUnauthenticated, testGetUser } from './auth';
 
 test('isAuthenticated', (t) => {
-  const user = testGetUser({ username: "lakin", password: "12344" });
+  const user = testGetUser({ username: "lakin", password: "1234" });
   t.is(isAuthenticated(user), true);
 });
 

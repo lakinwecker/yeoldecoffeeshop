@@ -1,5 +1,5 @@
 // import * as Stripe from "stripe"
-import { PaymentVerificationI, StripeArgs } from './payment';
+/*import { PaymentVerificationI, StripeArgs } from './payment';
 
 type Order = {
   readonly stripeArgs: StripeArgs;
@@ -12,4 +12,4 @@ export const purchaseCoffee =
       return true;
     }
     return false;
-  };
+  };*/
