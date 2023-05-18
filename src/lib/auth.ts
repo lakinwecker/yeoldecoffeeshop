@@ -53,15 +53,16 @@ export type AuthenticationRequest = {
   readonly password: string;
 };
 
-export const testGetUser = (req: AuthenticationRequest): User => {
-  if (req.username === 'lakin' && req.password === '1234') {
+
+export const getUser = (auth: (req: AuthenticationRequest) => boolean) =>
+  (req: AuthenticationRequest): User => {
+    // TODO: implement the real version
+    if (!auth(req)) return unauthenticated();
     return authenticated(req.username);
-  }
-  return unauthenticated();
+  };
+
+export const checkPassword = (req: AuthenticationRequest): boolean => {
+  return false;
 };
 
-export const getUser = (req: AuthenticationRequest): User => {
-  // TODO: implement the real version
-  if (req.username == 'wut') return unauthenticated();
-  return unauthenticated();
-};
+export const getUserForPassword = getUser(checkPassword);
