@@ -1,10 +1,6 @@
 // import * as Stripe from "stripe"
 
-const paymentProofToken: unique symbol = Symbol('User is Authenticated');
-type AuthenticatedTokenType = typeof paymentProofToken;
 
-export type StripePaymentReceipt = { stripeId: number; }
-export type StripePaymentReceipt = { stripeId: number; }
 export type StripeArgs = undefined; // TODO: fix this.
 
 export type PaymentVerificationI = {
